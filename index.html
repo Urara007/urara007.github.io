@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name | Creative Portfolio</title>
-    <!-- FontAwesome for clean iconography -->
     <script src="https://cloudflare.com"></script>
     <style>
         :root {
@@ -12,7 +11,7 @@
             --card-bg: #131316;
             --text-main: #ffffff;
             --text-muted: #8e8e93;
-            --accent: #6366f1; /* Premium indigo theme */
+            --accent: #6366f1;
             --border: #1f1f23;
         }
 
@@ -27,14 +26,15 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Stops horizontal screen spill */
+            width: 100%;
         }
 
-        /* 1. Hero Identity Header */
         header {
             max-width: 1000px;
             margin: 0 auto;
             padding: 6rem 2rem 4rem 2rem;
+            width: 100%;
         }
 
         header h1 {
@@ -68,7 +68,6 @@
             color: var(--accent);
         }
 
-        /* 2. Side-Scrolling Text Banner */
         .ticker-wrap {
             background: var(--card-bg);
             border-top: 1px solid var(--border);
@@ -76,12 +75,14 @@
             overflow: hidden;
             padding: 0.8rem 0;
             margin-bottom: 5rem;
+            width: 100%;
         }
 
         .ticker {
             display: flex;
             white-space: nowrap;
             animation: marquee 30s linear infinite;
+            width: max-content;
         }
 
         .ticker span {
@@ -98,20 +99,16 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
-               /* 3. Global Content Layout */
         .content-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 2rem 6rem 2rem;
             width: 100%;
-            display: block;
-            box-sizing: border-box; /* Prevents text overflow */
-        }
-
         }
 
         section {
             margin-bottom: 6rem;
+            width: 100%;
         }
 
         .section-tag {
@@ -144,12 +141,12 @@
             line-height: 1.7;
         }
 
-        /* 4. Tools & Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.25rem;
             margin-top: 2rem;
+            width: 100%;
         }
 
         .skill-card {
@@ -174,14 +171,15 @@
             color: var(--accent);
             font-weight: bold;
             font-size: 0.9rem;
+            flex-shrink: 0;
         }
 
-        /* 5. Clean Structured Work Cards */
         .work-list {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
             margin-top: 2rem;
+            width: 100%;
         }
 
         .work-card {
@@ -192,6 +190,7 @@
             display: grid;
             grid-template-columns: 1fr 2.5fr;
             gap: 2rem;
+            width: 100%;
         }
 
         .work-meta {
@@ -240,12 +239,12 @@
             color: var(--text-muted);
         }
 
-        /* 6. Creative Project Callouts */
         .portfolio-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
             margin-top: 2rem;
+            width: 100%;
         }
 
         .portfolio-card {
@@ -273,7 +272,6 @@
             font-size: 1.1rem;
         }
 
-        /* 7. Contact Section Box */
         .contact-box {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -283,6 +281,7 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 2rem;
+            width: 100%;
         }
 
         .contact-btn {
@@ -293,25 +292,25 @@
             text-decoration: none;
             font-weight: 700;
             transition: opacity 0.2s;
+            flex-shrink: 0;
         }
 
         .contact-btn:hover {
             opacity: 0.9;
         }
 
-        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            header h1 { font-size: 3rem; }
+            header h1 { font-size: 2.5rem; }
             .work-card { grid-template-columns: 1fr; gap: 1rem; }
             .work-meta { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 1rem; }
             .portfolio-grid { grid-template-columns: 1fr; }
             .contact-box { flex-direction: column; gap: 1.5rem; text-align: center; }
+            header, .content-container { padding-left: 1rem; padding-right: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <h1>Your Name</h1>
         <div class="tagline">Marketing · Strategy · Storytelling</div>
@@ -322,19 +321,15 @@
         </div>
     </header>
 
-    <!-- Endless Text Ticker Banner -->
     <div class="ticker-wrap">
         <div class="ticker">
             <span>Brand Strategy ✦ Content Creation ✦ Digital Campaigns ✦ Data Analytics ✦ Community Growth ✦ Brand Strategy ✦ Content Creation ✦ Digital Campaigns ✦ Data Analytics ✦ Community Growth ✦</span>
         </div>
-    </div> <!-- Ensure this closing div is here -->
+    </div>
 
-    <!-- Main Blocks Container -->
     <div class="content-container">
         
-        <!-- About Block -->
         <section id="about">
-
             <span class="section-tag">01 — About Me</span>
             <h2>I build <em>stories</em> that move people forward.</h2>
             <p class="about-text">
@@ -342,7 +337,6 @@
             </p>
         </section>
 
-        <!-- Tools & Skills Block -->
         <section id="skills">
             <span class="section-tag">02 — Tools & Skills</span>
             <h2>Creative Tool Stack</h2>
@@ -350,3 +344,5 @@
                 <div class="skill-card">
                     <div class="skill-icon">Pr</div>
                     <div>
+                        <div style="font-weight: 600;">Premiere Pro</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">Video Production</div>
